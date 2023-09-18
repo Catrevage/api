@@ -5,10 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Embeddable
-@Getter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Embeddable
 public class Endereco {
 	
 	private String rua;
@@ -19,9 +19,10 @@ public class Endereco {
 	private String numero;
 	private String complemento;
 	
-	
 	public Endereco() {
+		
 	}
+	
 	
 	public Endereco(DadosEndereco dados) {
 		this.rua = dados.rua();
@@ -57,5 +58,44 @@ public class Endereco {
 		}		
 		
 	}
+
+
+	public String getRua() {
+		return rua;
+	}
+
+
+	public String getBairro() {
+		return bairro;
+	}
+
+
+	public String getCep() {
+		return cep;
+	}
+
+
+	public String getCidade() {
+		return cidade;
+	}
+
+
+	public String getUf() {
+		return uf;
+	}
+
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+	public String getComplemento() {
+		return complemento;
+	}
+	
+	
+	
+	
 
 }

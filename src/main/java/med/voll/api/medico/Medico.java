@@ -77,7 +77,7 @@ public class Medico {
 		return especialidade;
 	}
 
-	public Endereco getEndereco() {
+	public Endereco getEndereco() {		
 		return endereco;
 	}
 

@@ -47,6 +47,9 @@ public class Clientes {
 		this.endereco = new Endereco(dados.endereco());
 	}
 
+	public boolean isAtivo() {
+		return ativo;
+	}
 	public Long getId() {
 		return id;
 	}

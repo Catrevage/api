@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import med.voll.api.endereco.Endereco;
+
 @RestController
 @RequestMapping("/hello")
 public class HelloController {
@@ -12,6 +14,8 @@ public class HelloController {
 	@GetMapping
 	public String hello() {
 		return "Hello World";
+		
+		
 	}
 	
 }
