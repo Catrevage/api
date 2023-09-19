@@ -1,4 +1,4 @@
-package med.voll.api.endereco;
+package med.voll.api.domain.endereco;
 
 import org.springframework.web.service.annotation.PatchExchange;
 

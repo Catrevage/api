@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import jakarta.validation.Valid;
-import med.voll.api.clientes.Clientes;
-import med.voll.api.clientes.ClientesRepository;
-import med.voll.api.clientes.DadosAtualizacaoCliente;
-import med.voll.api.clientes.DadosCadastroClientes;
-import med.voll.api.clientes.DadosDetalharCliente;
-import med.voll.api.clientes.DadosListagemClientes;
+import med.voll.api.domain.clientes.Clientes;
+import med.voll.api.domain.clientes.ClientesRepository;
+import med.voll.api.domain.clientes.DadosAtualizacaoCliente;
+import med.voll.api.domain.clientes.DadosCadastroClientes;
+import med.voll.api.domain.clientes.DadosDetalharCliente;
+import med.voll.api.domain.clientes.DadosListagemClientes;
 
 @RestController
 @RequestMapping("pacientes")
@@ -57,7 +57,7 @@ public class ClientesController {
 	}
 	
 	@PutMapping
-	@Transactional1
+	@Transactional
 	public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoCliente dados) {
 		var cliente = repository.getReferenceById(dados.id());
 		cliente.atualizarInformacoes(dados);

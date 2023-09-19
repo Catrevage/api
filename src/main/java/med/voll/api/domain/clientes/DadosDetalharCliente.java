@@ -1,6 +1,6 @@
-package med.voll.api.clientes;
+package med.voll.api.domain.clientes;
 
-import med.voll.api.endereco.Endereco;
+import med.voll.api.domain.endereco.Endereco;
 
 public record DadosDetalharCliente(
 		Long id,

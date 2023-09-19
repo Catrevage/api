@@ -1,9 +1,7 @@
-package med.voll.api.medico;
+package med.voll.api.domain.clientes;
 
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,46 +11,45 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import med.voll.api.endereco.Endereco;
+import med.voll.api.domain.endereco.DadosEndereco;
+import med.voll.api.domain.endereco.Endereco;
 
-@Entity(name = "Medico")
-@Table(name = "medicos")
+@Entity(name = "Clientes")
+@Table(name = "clientes")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Medico {
-
+public class Clientes {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String email;
 	private String telefone;
-	private String crm;
+	private String cpf;
 	private boolean ativo;
 	
-
-	@Enumerated(EnumType.STRING)
-	private Especialidade especialidade;
-
 	@Embedded 
 	private Endereco endereco;
 	
-	public Medico() {
+	public Clientes() {
 		
 	}
-
-	public Medico(DadosCadastroMedicos dados) {
+	
+	public Clientes(DadosCadastroClientes dados) {
 		this.ativo = true;
 		this.nome = dados.nome();
 		this.email = dados.email();
 		this.telefone = dados.telefone();
-		this.crm = dados.crm();
-		this.especialidade = dados.especialidade();
+		this.cpf = dados.cpf();
 		this.endereco = new Endereco(dados.endereco());
 	}
 
+	public boolean isAtivo() {
+		return ativo;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -69,26 +66,21 @@ public class Medico {
 		return telefone;
 	}
 
-	public String getCrm() {
-		return crm;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public Especialidade getEspecialidade() {
-		return especialidade;
-	}
-
-	public Endereco getEndereco() {		
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void atualizarInformacoes(@Valid DadosAtualizacaoMedicos dados) {
+	public void atualizarInformacoes(@Valid DadosAtualizacaoCliente dados) {
 		if (dados.nome() != null) {
 			this.nome = dados.nome();
 		}
 		if (dados.telefone() != null) {
 			this.telefone = dados.telefone();
 		}
-		
 		if (dados.endereco() != null) {
 			this.endereco.atualizarInformacoes(dados.endereco());
 		}
@@ -102,5 +94,4 @@ public class Medico {
 	}
 	
 	
-
 }
