@@ -18,10 +18,7 @@ public class Endereco {
 	private String uf;
 	private String numero;
 	private String complemento;
-	
-	public Endereco() {
-		
-	}
+
 	
 	
 	public Endereco(DadosEndereco dados) {
@@ -59,43 +56,5 @@ public class Endereco {
 		
 	}
 
-
-	public String getRua() {
-		return rua;
-	}
-
-
-	public String getBairro() {
-		return bairro;
-	}
-
-
-	public String getCep() {
-		return cep;
-	}
-
-
-	public String getCidade() {
-		return cidade;
-	}
-
-
-	public String getUf() {
-		return uf;
-	}
-
-
-	public String getNumero() {
-		return numero;
-	}
-
-
-	public String getComplemento() {
-		return complemento;
-	}
-	
-	
-	
-	
 
 }

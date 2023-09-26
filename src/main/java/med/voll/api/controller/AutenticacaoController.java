@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import med.voll.api.infra.security.DadosTokenJWT;
 import med.voll.api.infra.security.TokenService;
-import med.voll.api.user.DadosAutenticacao;
-import med.voll.api.user.Usuario;
+import med.voll.api.domain.user.DadosAutenticacao;
+import med.voll.api.domain.user.Usuario;
 
 @RestController
 @RequestMapping("/login")

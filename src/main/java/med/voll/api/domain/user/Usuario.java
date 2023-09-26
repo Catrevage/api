@@ -1,4 +1,4 @@
-package med.voll.api.user;
+package med.voll.api.domain.user;
 
 import java.util.Collection;
 import java.util.List;

@@ -1,5 +1,6 @@
 package med.voll.api.infra.exception;
 
+import med.voll.api.domain.consulta.ValidacaoException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -21,7 +22,13 @@ public class TratadordeErros {
 		var erro = ex.getFieldErrors();
 		return ResponseEntity.badRequest().body(erro.stream().map(DadosErroValidacao::new).toList());
 	}
-	
+
+
+	@ExceptionHandler(ValidacaoException.class)
+	public ResponseEntity tratarErroValidacao(ValidacaoException ex){
+		return ResponseEntity.badRequest().body(ex.getMessage());
+	}
+
 	private record DadosErroValidacao(String campo, String mensagem) {
 		
 		DadosErroValidacao(FieldError erro){
